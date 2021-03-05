@@ -31,4 +31,5 @@ jobs:
         run: docker build -t vaugenwake/goapi:${SHORT_SHA} .
 
       - name: Push image
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: docker push vaugenwake/goapi:${SHORT_SHA}
